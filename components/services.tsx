@@ -7,7 +7,7 @@ const services = [
   {
     icon: Film,
     title: 'Social Content',
-    description: 'Scroll-stopping video content for Instagram, TikTok, and LinkedIn. High production value that makes your brand unmissable.',
+    description: 'Scroll-stopping video content for Instagram, TikTok, YouTube, and LinkedIn. High production value that makes your brand unmissable.',
   },
   {
     icon: Sparkles,
