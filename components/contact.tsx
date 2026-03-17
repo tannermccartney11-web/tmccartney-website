@@ -29,24 +29,24 @@ export function Contact() {
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8"
         >
           <a
-            href="mailto:hello@tannermccartney.com"
+            href="mailto:Tm.media512@gmail.com"
             className="group flex items-center gap-3 text-lg md:text-xl text-foreground hover:text-accent transition-colors duration-300"
           >
             <Mail className="w-5 h-5" />
-            <span>hello@tannermccartney.com</span>
+            <span>Tm.media512@gmail.com</span>
             <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </a>
 
           <span className="hidden sm:block text-border">|</span>
 
           <a
-            href="https://instagram.com/tannermccartney"
+            href="https://www.instagram.com/tanner.mccartney99/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-3 text-lg md:text-xl text-foreground hover:text-accent transition-colors duration-300"
           >
             <Instagram className="w-5 h-5" />
-            <span>@tannermccartney</span>
+            <span>@tanner.mccartney99</span>
             <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </a>
         </motion.div>

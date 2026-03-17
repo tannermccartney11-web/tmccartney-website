@@ -133,7 +133,7 @@ export function PersonalContent() {
           {/* Social Links */}
           <div className="mt-8 flex items-center gap-4">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/tanner.mccartney99/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-border hover:border-accent hover:text-accent transition-colors"
