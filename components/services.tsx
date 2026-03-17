@@ -6,18 +6,18 @@ import { Film, Sparkles, TrendingUp } from 'lucide-react'
 const services = [
   {
     icon: Film,
-    title: 'Brand Storytelling',
-    description: 'Cinematic brand films that capture your essence and connect with your audience on an emotional level.',
+    title: 'Social Content',
+    description: 'Scroll-stopping video content for Instagram, TikTok, and LinkedIn. High production value that makes your brand unmissable.',
   },
   {
     icon: Sparkles,
-    title: 'Social Content Strategy',
-    description: 'Strategic content creation for Instagram, TikTok, and LinkedIn that builds community and drives engagement.',
+    title: 'Brand Films',
+    description: 'Cinematic storytelling that captures your brand essence. From concept to final cut, crafted to connect emotionally.',
   },
   {
     icon: TrendingUp,
-    title: 'YouTube Growth',
-    description: 'End-to-end YouTube strategy including content planning, production, and optimization for sustainable growth.',
+    title: 'Content Strategy',
+    description: 'Strategic planning for consistent, quality content. Building a visual identity that resonates with your audience.',
   },
 ]
 

@@ -3,12 +3,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-const stats = [
-  { value: '50+', label: 'Brand Campaigns' },
-  { value: '3M+', label: 'Views Generated' },
-  { value: 'Austin, TX', label: 'Based In' },
-]
-
 export function About() {
   return (
     <section id="about" className="py-24 md:py-32 px-6 bg-card">
@@ -48,35 +42,29 @@ export function About() {
             
             <div className="mt-8 space-y-6">
               <p className="text-lg md:text-xl text-foreground leading-relaxed">
-                Former professional athlete turned brand filmmaker.
+                Former professional athlete turned creative.
               </p>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                I help brands grow through authentic storytelling and strategic organic content. Every project starts with understanding your story, your audience, and what makes you different.
+                I create high-quality social media content that helps brands stand out in the feed. My background in athletics taught me discipline, storytelling through motion, and the power of authentic moments.
               </p>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                From concept to final cut, I craft visual narratives that don't just look beautiful — they connect, resonate, and drive real results for your brand.
+                Every piece of content I create is crafted with intention — cinematic visuals, compelling narratives, and a production quality that elevates your brand above the noise.
               </p>
             </div>
 
-            {/* Stats */}
-            <div className="mt-12 grid grid-cols-3 gap-6 md:gap-8">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                >
-                  <div className="text-2xl md:text-3xl font-serif text-accent">
-                    {stat.value}
-                  </div>
-                  <div className="mt-1 text-xs md:text-sm text-muted-foreground tracking-wide">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {/* Location badge instead of stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-12 flex items-center gap-3"
+            >
+              <div className="w-2 h-2 rounded-full bg-accent" />
+              <span className="text-sm text-muted-foreground tracking-wide uppercase">
+                Based in Austin, TX
+              </span>
+            </motion.div>
           </motion.div>
         </div>
       </div>
