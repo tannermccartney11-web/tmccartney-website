@@ -41,33 +41,6 @@ const projects = [
     size: 'large',
     videoUrl: 'https://youtu.be/KqaBtdkXrMA',
   },
-  {
-    id: 4,
-    title: 'The Journey',
-    client: 'Nike Running',
-    category: 'Brand Campaign',
-    image: '/portfolio/project-4.jpg',
-    size: 'large',
-    videoUrl: null,
-  },
-  {
-    id: 5,
-    title: 'Momentum',
-    client: 'Tech Startup',
-    category: 'Product Launch',
-    image: '/portfolio/project-5.jpg',
-    size: 'small',
-    videoUrl: null,
-  },
-  {
-    id: 6,
-    title: 'Authentic',
-    client: 'Whole Foods Market',
-    category: 'Social Content',
-    image: '/portfolio/project-6.jpg',
-    size: 'small',
-    videoUrl: null,
-  },
 ]
 
 const containerVariants = {
