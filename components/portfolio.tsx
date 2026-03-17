@@ -34,12 +34,12 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Crafted',
-    client: 'Local Coffee Roasters',
-    category: 'Documentary',
+    title: 'Proud Mary Coffee',
+    client: 'Proud Mary Coffee Roasters',
+    category: 'Brand Film',
     image: '/portfolio/project-3.jpg',
-    size: 'medium',
-    videoUrl: null,
+    size: 'large',
+    videoUrl: 'https://youtu.be/KqaBtdkXrMA',
   },
   {
     id: 4,
