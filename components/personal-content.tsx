@@ -126,7 +126,7 @@ export function PersonalContent() {
               <span className="text-sm">Instagram</span>
             </a>
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@TannerMcCartney"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-full border border-border hover:border-accent hover:text-accent transition-colors"
