@@ -17,7 +17,7 @@ const projects = [
   {
     id: 1,
     title: 'Sub 1:17',
-    client: 'Half Marathon Training Journey',
+    client: 'George Blevins',
     category: 'Documentary',
     image: '/portfolio/project-1.jpg',
     size: 'large',
