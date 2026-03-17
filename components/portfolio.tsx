@@ -12,6 +12,7 @@ const projects = [
     category: 'Brand Film',
     image: '/portfolio/project-1.jpg',
     size: 'large',
+    videoUrl: 'https://youtu.be/QXNIcMX7Cm0',
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const projects = [
     category: 'Commercial',
     image: '/portfolio/project-2.jpg',
     size: 'medium',
+    videoUrl: null,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const projects = [
     category: 'Documentary',
     image: '/portfolio/project-3.jpg',
     size: 'medium',
+    videoUrl: null,
   },
   {
     id: 4,
@@ -36,6 +39,7 @@ const projects = [
     category: 'Brand Campaign',
     image: '/portfolio/project-4.jpg',
     size: 'large',
+    videoUrl: null,
   },
   {
     id: 5,
@@ -44,6 +48,7 @@ const projects = [
     category: 'Product Launch',
     image: '/portfolio/project-5.jpg',
     size: 'small',
+    videoUrl: null,
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ const projects = [
     category: 'Social Content',
     image: '/portfolio/project-6.jpg',
     size: 'small',
+    videoUrl: null,
   },
 ]
 
@@ -103,7 +109,13 @@ export function Portfolio() {
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
         >
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            const CardWrapper = project.videoUrl ? 'a' : 'div'
+            const cardProps = project.videoUrl 
+              ? { href: project.videoUrl, target: '_blank', rel: 'noopener noreferrer' }
+              : {}
+            
+            return (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -115,6 +127,7 @@ export function Portfolio() {
                   : 'aspect-square'
               }`}
             >
+              <CardWrapper {...cardProps} className="absolute inset-0">
               {/* Placeholder gradient background */}
               <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-muted">
                 <Image
@@ -151,9 +164,9 @@ export function Portfolio() {
                   </div>
                 </div>
               </div>
+              </CardWrapper>
             </motion.div>
-          ))}
-        </motion.div>
+)})}
       </div>
     </section>
   )
