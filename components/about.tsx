@@ -14,7 +14,7 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative aspect-[3/4] lg:aspect-[4/5] overflow-hidden rounded-lg"
+            className="relative aspect-video overflow-hidden rounded-lg"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-muted">
               <Image
