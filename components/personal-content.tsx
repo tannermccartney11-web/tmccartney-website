@@ -9,21 +9,25 @@ const personalContent = [
     id: 1,
     image: '/personal/content-1.jpg',
     type: 'Reel',
+    aspect: 'vertical',
   },
   {
     id: 2,
     image: '/personal/content-2.jpg',
-    type: 'Reel',
+    type: 'Video',
+    aspect: 'landscape',
   },
   {
     id: 3,
     image: '/personal/content-3.jpg',
-    type: 'Reel',
+    type: 'Video',
+    aspect: 'landscape',
   },
   {
     id: 4,
     image: '/personal/content-4.jpg',
     type: 'Reel',
+    aspect: 'vertical',
   },
 ]
 
@@ -96,7 +100,7 @@ export function PersonalContent() {
           </div>
         </motion.div>
 
-        {/* Content Grid - Instagram style */}
+        {/* Content Grid - Mixed aspect ratios */}
         <motion.div
           className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
           variants={containerVariants}
@@ -108,7 +112,9 @@ export function PersonalContent() {
             <motion.div
               key={item.id}
               variants={itemVariants}
-              className="group relative aspect-[9/16] overflow-hidden rounded-lg cursor-pointer"
+              className={`group relative overflow-hidden rounded-lg cursor-pointer ${
+                item.aspect === 'vertical' ? 'aspect-[9/16]' : 'aspect-video'
+              }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-muted">
                 <Image
