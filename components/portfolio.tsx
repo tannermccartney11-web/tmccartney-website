@@ -166,7 +166,9 @@ export function Portfolio() {
               </div>
               </CardWrapper>
             </motion.div>
-)})}
+          )
+        })}
+        </motion.div>
       </div>
     </section>
   )
