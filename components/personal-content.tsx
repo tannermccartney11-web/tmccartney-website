@@ -36,7 +36,7 @@ const personalContent = [
     type: 'Video',
     aspect: 'landscape',
     title: '',
-    videoUrl: null,
+    videoUrl: 'https://youtu.be/Pk4Es56th0M',
   },
   {
     id: 4,
