@@ -25,12 +25,12 @@ const projects = [
   },
   {
     id: 2,
-    title: 'City Lights',
-    client: 'Austin Tourism Board',
-    category: 'Commercial',
+    title: '',
+    client: '',
+    category: '',
     image: '/portfolio/project-2.jpg',
-    size: 'medium',
-    videoUrl: null,
+    size: 'large',
+    videoUrl: 'https://youtu.be/phzfYWmr-NE',
   },
   {
     id: 3,
