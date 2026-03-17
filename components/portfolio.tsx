@@ -16,21 +16,21 @@ function getYouTubeEmbedUrl(url: string): string {
 const projects = [
   {
     id: 1,
-    title: 'Sub 1:17 | Ep 2',
-    client: 'George Blevins',
-    category: 'Mini Doc-Series',
-    image: '/portfolio/project-1.jpg',
-    size: 'large',
-    videoUrl: 'https://youtu.be/QXNIcMX7Cm0',
-  },
-  {
-    id: 2,
     title: 'Sub 1:17 | Ep 1',
     client: 'George Blevins',
     category: 'Mini Doc-Series',
     image: '/portfolio/project-2.jpg',
     size: 'large',
     videoUrl: 'https://youtu.be/phzfYWmr-NE',
+  },
+  {
+    id: 2,
+    title: 'Sub 1:17 | Ep 2',
+    client: 'George Blevins',
+    category: 'Mini Doc-Series',
+    image: '/portfolio/project-1.jpg',
+    size: 'large',
+    videoUrl: 'https://youtu.be/QXNIcMX7Cm0',
   },
   {
     id: 3,
