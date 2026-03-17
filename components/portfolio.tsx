@@ -16,9 +16,9 @@ function getYouTubeEmbedUrl(url: string): string {
 const projects = [
   {
     id: 1,
-    title: 'Origin Story',
-    client: 'Athletic Brewing Co.',
-    category: 'Brand Film',
+    title: 'Sub 1:17',
+    client: 'Half Marathon Training Journey',
+    category: 'Documentary',
     image: '/portfolio/project-1.jpg',
     size: 'large',
     videoUrl: 'https://youtu.be/QXNIcMX7Cm0',
