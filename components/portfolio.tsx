@@ -18,7 +18,7 @@ const projects = [
     id: 1,
     title: 'Sub 1:17',
     client: 'George Blevins',
-    category: 'Documentary',
+    category: 'Mini Doc-Series',
     image: '/portfolio/project-1.jpg',
     size: 'large',
     videoUrl: 'https://youtu.be/QXNIcMX7Cm0',
