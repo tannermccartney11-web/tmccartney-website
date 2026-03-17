@@ -1,8 +1,17 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Play } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Play, X } from 'lucide-react'
 import Image from 'next/image'
+
+// Convert YouTube URL to embed URL
+function getYouTubeEmbedUrl(url: string): string {
+  const videoId = url.includes('youtu.be/') 
+    ? url.split('youtu.be/')[1]?.split('?')[0]
+    : url.split('v=')[1]?.split('&')[0]
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`
+}
 
 const projects = [
   {
@@ -84,8 +93,44 @@ const itemVariants = {
 }
 
 export function Portfolio() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null)
+
   return (
     <section id="work" className="py-24 md:py-32 px-6">
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm p-4 md:p-8"
+            onClick={() => setActiveVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl aspect-video bg-black rounded-lg overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <iframe
+                src={getYouTubeEmbedUrl(activeVideo)}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -110,15 +155,11 @@ export function Portfolio() {
           viewport={{ once: true, margin: '-50px' }}
         >
           {projects.map((project, index) => {
-            const CardWrapper = project.videoUrl ? 'a' : 'div'
-            const cardProps = project.videoUrl 
-              ? { href: project.videoUrl, target: '_blank', rel: 'noopener noreferrer' }
-              : {}
-            
             return (
             <motion.div
               key={project.id}
               variants={itemVariants}
+              onClick={() => project.videoUrl && setActiveVideo(project.videoUrl)}
               className={`group relative overflow-hidden rounded-lg cursor-pointer ${
                 project.size === 'large' 
                   ? 'md:col-span-2 aspect-[16/9]' 
@@ -127,7 +168,7 @@ export function Portfolio() {
                   : 'aspect-square'
               }`}
             >
-              <CardWrapper {...cardProps} className="absolute inset-0">
+              <div className="absolute inset-0">
               {/* Placeholder gradient background */}
               <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-muted">
                 <Image
@@ -164,7 +205,7 @@ export function Portfolio() {
                   </div>
                 </div>
               </div>
-              </CardWrapper>
+              </div>
             </motion.div>
           )
         })}
