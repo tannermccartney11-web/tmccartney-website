@@ -35,7 +35,7 @@ const personalContent = [
     image: '/personal/content-3.jpg',
     type: 'Video',
     aspect: 'landscape',
-    title: '',
+    title: 'Documenting the Journey (Long Form)',
     videoUrl: 'https://youtu.be/Pk4Es56th0M',
   },
   {
