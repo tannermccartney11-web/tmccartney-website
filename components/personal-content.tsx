@@ -16,14 +16,6 @@ function getYouTubeEmbedUrl(url: string): string {
 const personalContent = [
   {
     id: 1,
-    image: '/personal/content-1.jpg',
-    type: 'Reel',
-    aspect: 'vertical',
-    title: '',
-    videoUrl: null,
-  },
-  {
-    id: 2,
     image: '/personal/content-2.jpg',
     type: 'Video',
     aspect: 'landscape',
@@ -31,20 +23,12 @@ const personalContent = [
     videoUrl: 'https://youtu.be/szU70LKYOso',
   },
   {
-    id: 3,
+    id: 2,
     image: '/personal/content-3.jpg',
     type: 'Video',
     aspect: 'landscape',
     title: 'Documenting the Journey (Long Form)',
     videoUrl: 'https://youtu.be/Pk4Es56th0M',
-  },
-  {
-    id: 4,
-    image: '/personal/content-4.jpg',
-    type: 'Reel',
-    aspect: 'vertical',
-    title: '',
-    videoUrl: null,
   },
 ]
 
@@ -155,7 +139,7 @@ export function PersonalContent() {
 
         {/* Content Grid - Mixed aspect ratios */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
