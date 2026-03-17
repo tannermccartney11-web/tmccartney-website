@@ -25,9 +25,9 @@ const projects = [
   },
   {
     id: 2,
-    title: '',
-    client: '',
-    category: '',
+    title: 'Sub 1:17 | Ep 1',
+    client: 'George Blevins',
+    category: 'Mini Doc-Series',
     image: '/portfolio/project-2.jpg',
     size: 'large',
     videoUrl: 'https://youtu.be/phzfYWmr-NE',
