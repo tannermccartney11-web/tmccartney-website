@@ -16,7 +16,7 @@ function getYouTubeEmbedUrl(url: string): string {
 const projects = [
   {
     id: 1,
-    title: 'Sub 1:17',
+    title: 'Sub 1:17 | Ep 2',
     client: 'George Blevins',
     category: 'Mini Doc-Series',
     image: '/portfolio/project-1.jpg',
