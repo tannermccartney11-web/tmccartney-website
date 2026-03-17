@@ -1,8 +1,17 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Instagram, Youtube, ExternalLink } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Instagram, Youtube, ExternalLink, Play, X } from 'lucide-react'
 import Image from 'next/image'
+
+// Convert YouTube URL to embed URL
+function getYouTubeEmbedUrl(url: string): string {
+  const videoId = url.includes('youtu.be/') 
+    ? url.split('youtu.be/')[1]?.split('?')[0]
+    : url.split('v=')[1]?.split('&')[0]
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`
+}
 
 const personalContent = [
   {
@@ -10,24 +19,32 @@ const personalContent = [
     image: '/personal/content-1.jpg',
     type: 'Reel',
     aspect: 'vertical',
+    title: '',
+    videoUrl: null,
   },
   {
     id: 2,
     image: '/personal/content-2.jpg',
     type: 'Video',
     aspect: 'landscape',
+    title: 'The Last Year of My Life',
+    videoUrl: 'https://youtu.be/szU70LKYOso',
   },
   {
     id: 3,
     image: '/personal/content-3.jpg',
     type: 'Video',
     aspect: 'landscape',
+    title: '',
+    videoUrl: null,
   },
   {
     id: 4,
     image: '/personal/content-4.jpg',
     type: 'Reel',
     aspect: 'vertical',
+    title: '',
+    videoUrl: null,
   },
 ]
 
@@ -54,8 +71,44 @@ const itemVariants = {
 }
 
 export function PersonalContent() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null)
+
   return (
     <section id="creator" className="py-24 md:py-32 px-6 bg-card">
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm p-4 md:p-8"
+            onClick={() => setActiveVideo(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl aspect-video bg-black rounded-lg overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <iframe
+                src={getYouTubeEmbedUrl(activeVideo)}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+              <button
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -112,6 +165,7 @@ export function PersonalContent() {
             <motion.div
               key={item.id}
               variants={itemVariants}
+              onClick={() => item.videoUrl && setActiveVideo(item.videoUrl)}
               className={`group relative overflow-hidden rounded-lg cursor-pointer ${
                 item.aspect === 'vertical' ? 'aspect-[9/16]' : 'aspect-video'
               }`}
@@ -119,7 +173,7 @@ export function PersonalContent() {
               <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-muted">
                 <Image
                   src={item.image}
-                  alt={`Personal content ${item.id}`}
+                  alt={item.title || `Personal content ${item.id}`}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 50vw, 25vw"
@@ -127,8 +181,15 @@ export function PersonalContent() {
               </div>
               
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <ExternalLink className="w-6 h-6 text-foreground" />
+              <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2">
+                {item.videoUrl ? (
+                  <Play className="w-8 h-8 text-foreground fill-foreground" />
+                ) : (
+                  <ExternalLink className="w-6 h-6 text-foreground" />
+                )}
+                {item.title && (
+                  <span className="text-sm text-foreground text-center px-4">{item.title}</span>
+                )}
               </div>
               
               {/* Type badge */}
