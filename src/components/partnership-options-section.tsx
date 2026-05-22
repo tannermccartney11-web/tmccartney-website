@@ -102,3 +102,4 @@ export default function PartnershipOptionsSection() {
     </section>
   );
 }
+export default RecentPosts;

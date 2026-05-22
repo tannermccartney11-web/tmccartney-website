@@ -135,3 +135,4 @@ export function RecentPosts() {
     </section>
   );
 }
+export default RecentPosts;

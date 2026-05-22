@@ -93,3 +93,4 @@ export function MonthlyInsights() {
     </section>
   );
 }
+export default RecentPosts;

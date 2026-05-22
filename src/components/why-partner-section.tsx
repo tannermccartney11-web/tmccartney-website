@@ -69,3 +69,4 @@ export default function WhyPartnerSection() {
     </section>
   );
 }
+export default RecentPosts;
