@@ -19,7 +19,9 @@ export async function GET(request: NextRequest) {
   try {
     // Fetch recent posts
     const posts = await fetchRecentPosts(6);
-
+if (!posts) {
+  return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
+}
     // Enrich posts with insights
     const enrichedPosts = await Promise.all(
       posts.map(async (post) => {
@@ -47,6 +49,9 @@ export async function GET(request: NextRequest) {
 
     // Fetch account insights
     const accountInsights = await fetchAccountInsights();
+if (!accountInsights) {
+  return NextResponse.json({ error: 'Failed to fetch account insights' }, { status: 500 });
+}
     monthlyInsights.profileViews = accountInsights.profileViews || 0;
     monthlyInsights.websiteClicks = accountInsights.websiteClicks || 0;
 
