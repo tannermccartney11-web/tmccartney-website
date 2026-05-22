@@ -6,7 +6,7 @@ import WhoIAmSection from '@/components/who-i-am-section';
 import ContentPillarsSection from '@/components/content-pillars-section';
 import RecentPosts from '@/components/RecentPosts';
 import AudienceSection from '@/components/audience-section';
-import MonthlyInsights from '@/components/MonthlyInsights';
+// import MonthlyInsights from '@/components/MonthlyInsights';
 import WhyPartnerSection from '@/components/why-partner-section';
 import PartnershipOptionsSection from '@/components/partnership-options-section';
 import CTASection from '@/components/cta-section';
@@ -22,7 +22,7 @@ export default function Home() {
         <ContentPillarsSection />
         <RecentPosts />
         <AudienceSection />
-        <MonthlyInsights />
+        {/* <MonthlyInsights /> */}
         <WhyPartnerSection />
         <PartnershipOptionsSection />
         <CTASection />
