@@ -108,4 +108,4 @@ export default function Footer() {
     </footer>
   );
 }
-export default RecentPosts;
+export default Footer;

@@ -48,4 +48,4 @@ export default function HeroSection() {
     </section>
   );
 }
-export default RecentPosts;
+export default HeroSection;

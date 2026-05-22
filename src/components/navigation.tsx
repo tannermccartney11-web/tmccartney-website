@@ -77,4 +77,4 @@ export default function Navigation() {
     </nav>
   );
 }
-export default RecentPosts;
+export default Navigation;

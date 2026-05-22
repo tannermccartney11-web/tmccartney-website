@@ -53,4 +53,4 @@ export default function ContentPillarsSection() {
     </section>
   );
 }
-export default RecentPosts;
+export default ContentPillarsSection;

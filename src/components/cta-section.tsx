@@ -43,4 +43,4 @@ export default function CTASection() {
     </section>
   );
 }
-export default RecentPosts;
+export default CTASection;

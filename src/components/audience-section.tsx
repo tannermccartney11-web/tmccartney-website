@@ -116,4 +116,4 @@ export default function AudienceSection() {
     </section>
   );
 }
-export default RecentPosts;
+export default AudienceSection;
