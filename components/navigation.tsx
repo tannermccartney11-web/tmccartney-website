@@ -56,7 +56,7 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link
-              href="/"
+              href="/media-kit"
               className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               Media Kit
@@ -120,7 +120,7 @@ export function Navigation() {
                     transition={{ duration: 0.4 }}
                   >
                     <Link
-                      href="/"
+                      href="/media-kit"
                       onClick={() => setIsOpen(false)}
                       className="font-display text-3xl text-foreground hover:text-accent transition-colors duration-300"
                     >
