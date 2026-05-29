@@ -16,14 +16,11 @@ export function MediaKitNav() {
           Tanner McCartney
         </Link>
         <div className="flex items-center gap-6">
-          <Link 
-            href="/media-kit" 
-            className="font-mono text-xs uppercase tracking-wider text-accent"
-          >
+          <span className="font-mono text-xs uppercase tracking-wider text-accent">
             Media Kit
-          </Link>
+          </span>
           <Link 
-            href="/" 
+            href="/portfolio" 
             className="font-mono text-xs uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
           >
             Work

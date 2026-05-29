@@ -3,10 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-<<<<<<< HEAD
 import Link from 'next/link'
-=======
->>>>>>> origin/master
 
 const navLinks = [
   { href: '#work', label: 'Work' },
@@ -58,15 +55,12 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-<<<<<<< HEAD
             <Link
-              href="/media-kit"
+              href="/"
               className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               Media Kit
             </Link>
-=======
->>>>>>> origin/master
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -120,38 +114,28 @@ export function Navigation() {
                 </div>
 
                 <nav className="mt-12 flex flex-col gap-8">
-<<<<<<< HEAD
                   <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4 }}
                   >
                     <Link
-                      href="/media-kit"
+                      href="/"
                       onClick={() => setIsOpen(false)}
                       className="font-display text-3xl text-foreground hover:text-accent transition-colors duration-300"
                     >
                       Media Kit
                     </Link>
                   </motion.div>
-=======
->>>>>>> origin/master
                   {navLinks.map((link, index) => (
                     <motion.a
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-<<<<<<< HEAD
                       className="font-display text-3xl text-foreground hover:text-accent transition-colors duration-300"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: (index + 1) * 0.1 }}
-=======
-                      className="font-serif text-3xl text-foreground hover:text-accent transition-colors duration-300"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
->>>>>>> origin/master
                     >
                       {link.label}
                     </motion.a>
