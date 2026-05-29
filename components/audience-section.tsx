@@ -116,4 +116,3 @@ export default function AudienceSection() {
     </section>
   );
 }
-export default AudienceSection;
