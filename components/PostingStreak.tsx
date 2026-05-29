@@ -29,4 +29,3 @@ export function getStreakCount(): number {
 export function PostingStreak() {
   return <span>{getStreakCount()}</span>;
 }
-export default RecentPosts;
