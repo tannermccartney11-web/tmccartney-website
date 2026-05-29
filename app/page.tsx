@@ -1,33 +1,29 @@
-'use client';
-
-import Navigation from '@/components/navigation';
-import HeroSection from '@/components/hero-section';
-import WhoIAmSection from '@/components/who-i-am-section';
-import ContentPillarsSection from '@/components/content-pillars-section';
-import RecentPosts from '@/components/RecentPosts';
-import AudienceSection from '@/components/audience-section';
-import MonthlyInsights from '@/components/MonthlyInsights';
-import WhyPartnerSection from '@/components/why-partner-section';
-import PartnershipOptionsSection from '@/components/partnership-options-section';
-import CTASection from '@/components/cta-section';
-import Footer from '@/components/footer';
+import { MediaKitNav } from '@/components/media-kit/nav'
+import { MediaKitHero } from '@/components/media-kit/hero'
+import { WhoIAm } from '@/components/media-kit/who-i-am'
+import { ContentPillars } from '@/components/media-kit/content-pillars'
+import { RecentContent } from '@/components/media-kit/recent-content'
+import { AudienceInsights } from '@/components/media-kit/audience-insights'
+import { MonthlyInsights } from '@/components/media-kit/monthly-insights'
+import { WhyPartner } from '@/components/media-kit/why-partner'
+import { PartnershipOptions } from '@/components/media-kit/partnership-options'
+import { MediaKitCTA } from '@/components/media-kit/cta'
+import { MediaKitFooter } from '@/components/media-kit/footer'
 
 export default function Home() {
   return (
-    <div className="bg-black text-white">
-      <Navigation />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <HeroSection />
-        <WhoIAmSection />
-        <ContentPillarsSection />
-        <RecentPosts />
-        <AudienceSection />
-        <MonthlyInsights />
-        <WhyPartnerSection />
-        <PartnershipOptionsSection />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
-  );
+    <main className="min-h-screen bg-background">
+      <MediaKitNav />
+      <MediaKitHero />
+      <WhoIAm />
+      <ContentPillars />
+      <RecentContent />
+      <AudienceInsights />
+      <MonthlyInsights />
+      <WhyPartner />
+      <PartnershipOptions />
+      <MediaKitCTA />
+      <MediaKitFooter />
+    </main>
+  )
 }

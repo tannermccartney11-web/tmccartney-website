@@ -1,80 +1,162 @@
-'use client';
+'use client'
 
-import Link from 'next/link';
-import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 
-export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
+const navLinks = [
+  { href: '#work', label: 'Work' },
+  { href: '#about', label: 'About' },
+  { href: '#services', label: 'Services' },
+  { href: '#contact', label: 'Contact' },
+]
+
+export function Navigation() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
 
   return (
-    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-[#1A1A1A]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-[#C8A96E]">
-            tanner.
-          </Link>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8">
-            <Link href="#about" className="text-[#E8E4DF] hover:text-[#C8A96E] transition-colors text-sm">
-              About
-            </Link>
-            <Link href="#content" className="text-[#E8E4DF] hover:text-[#C8A96E] transition-colors text-sm">
-              Content
-            </Link>
-            <Link href="#audience" className="text-[#E8E4DF] hover:text-[#C8A96E] transition-colors text-sm">
-              Audience
-            </Link>
-            <Link href="#partnership" className="text-[#E8E4DF] hover:text-[#C8A96E] transition-colors text-sm">
-              Partnership
-            </Link>
-          </div>
-
-          {/* CTA Button */}
-          <Link
-            href="#contact"
-            className="hidden md:block px-6 py-2 bg-[#C8A96E] text-black font-semibold rounded hover:bg-[#dab896] transition-colors"
+    <>
+      <motion.header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? 'bg-background/80 backdrop-blur-md' : 'bg-transparent'
+        }`}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <nav className="max-w-7xl mx-auto px-6 py-4 md:py-6 flex items-center justify-between">
+          <a 
+            href="#" 
+            className="font-serif text-lg md:text-xl tracking-tight text-foreground hover:text-accent transition-colors duration-300"
           >
-            Get in Touch
-          </Link>
+            TM
+          </a>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            <Link
+              href="/"
+              className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+            >
+              Media Kit
+            </Link>
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-[#E8E4DF] hover:text-[#C8A96E]"
+            onClick={() => setIsOpen(true)}
+            className="md:hidden p-2 -mr-2 text-foreground hover:text-accent transition-colors duration-300"
+            aria-label="Open menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <Menu size={24} />
           </button>
-        </div>
+        </nav>
+      </motion.header>
 
-        {/* Mobile Menu */}
+      {/* Mobile Menu */}
+      <AnimatePresence>
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
-            <Link href="#about" className="block text-[#E8E4DF] hover:text-[#C8A96E] py-2 text-sm">
-              About
-            </Link>
-            <Link href="#content" className="block text-[#E8E4DF] hover:text-[#C8A96E] py-2 text-sm">
-              Content
-            </Link>
-            <Link href="#audience" className="block text-[#E8E4DF] hover:text-[#C8A96E] py-2 text-sm">
-              Audience
-            </Link>
-            <Link href="#partnership" className="block text-[#E8E4DF] hover:text-[#C8A96E] py-2 text-sm">
-              Partnership
-            </Link>
-            <Link
-              href="#contact"
-              className="block w-full px-4 py-2 bg-[#C8A96E] text-black font-semibold rounded hover:bg-[#dab896] transition-colors text-center"
+          <>
+            <motion.div
+              className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-card z-50 md:hidden"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              Get in Touch
-            </Link>
-          </div>
+              <div className="p-6">
+                <div className="flex justify-end">
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 -mr-2 text-foreground hover:text-accent transition-colors duration-300"
+                    aria-label="Close menu"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
+
+                <nav className="mt-12 flex flex-col gap-8">
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <Link
+                      href="/"
+                      onClick={() => setIsOpen(false)}
+                      className="font-display text-3xl text-foreground hover:text-accent transition-colors duration-300"
+                    >
+                      Media Kit
+                    </Link>
+                  </motion.div>
+                  {navLinks.map((link, index) => (
+                    <motion.a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="font-display text-3xl text-foreground hover:text-accent transition-colors duration-300"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: (index + 1) * 0.1 }}
+                    >
+                      {link.label}
+                    </motion.a>
+                  ))}
+                </nav>
+
+                <motion.div
+                  className="absolute bottom-8 left-6 right-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                >
+                  <p className="text-sm text-muted-foreground">
+                    Austin, TX
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+          </>
         )}
-      </div>
-    </nav>
-  );
+      </AnimatePresence>
+    </>
+  )
 }
-export default Navigation;
