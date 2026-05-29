@@ -102,4 +102,3 @@ export default function PartnershipOptionsSection() {
     </section>
   );
 }
-export default PartnershipOptionsSection;
