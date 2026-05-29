@@ -77,4 +77,3 @@ export default function Navigation() {
     </nav>
   );
 }
-export default Navigation;
