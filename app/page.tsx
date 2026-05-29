@@ -5,7 +5,6 @@ import HeroSection from '@/components/hero-section';
 import WhoIAmSection from '@/components/who-i-am-section';
 import ContentPillarsSection from '@/components/content-pillars-section';
 import RecentPosts from '@/components/RecentPosts';
-import FeaturedReel from '@/components/FeaturedReel';
 import AudienceSection from '@/components/audience-section';
 import MonthlyInsights from '@/components/MonthlyInsights';
 import WhyPartnerSection from '@/components/why-partner-section';
@@ -22,7 +21,6 @@ export default function Home() {
         <WhoIAmSection />
         <ContentPillarsSection />
         <RecentPosts />
-        <FeaturedReel />
         <AudienceSection />
         <MonthlyInsights />
         <WhyPartnerSection />
