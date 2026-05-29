@@ -1,6 +1,6 @@
 'use client';
 
-import { useInstagramData } from '@/src/hooks/useInstagramData';
+import { useInstagramData } from '@/hooks/useInstagramData';
 import Link from 'next/link';
 
 // Featured/pinned post with manual data
